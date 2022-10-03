@@ -1,0 +1,116 @@
+body{
+    background: #E5E5E5;
+    font-family: 'Inter';
+}
+
+#logo{
+    position:absolute;
+    left: 5%;
+    top: 5%;
+}
+
+#content{
+    position: sticky;
+    left: 620px;
+    top: 650px;
+    width: 200px;
+    height: 200px;
+}
+
+#botonIniciar{
+    background: #0A3871;
+    border-radius: 24px;
+    position: absolute;
+    left: 561px;
+    top: 402px;
+    width: 269px;
+    height: 66px;
+    font-size: 18px;
+    color: #FFFFFF;
+}
+
+#agregar{
+    border: 1px solid #0A3871;
+    border-radius: 24px;
+    position: absolute;
+    left: 561px;
+    top: 502px;
+    width: 269px;
+    height: 66px;
+    font-size: 18px;
+    color: #0A3871;;
+}
+
+#nuevoJuego{
+    background: #0A3871;
+    border: 1px solid #0A3871;
+    border-radius: 24px;
+    position: relative;;
+    left: 450px;
+    top: 520px;
+    width: 269px;
+    height: 44px;
+    font-size: 18px;
+    color: #FFFFFF;
+}
+
+#desistir{
+    border: 1px solid #0A3871;
+    border-radius: 24px;
+    position: relative;;
+    left: 450px;
+    top: 520px;
+    width: 269px;
+    height: 44px;
+    font-size: 18px;
+    color: #0A3871;
+}
+
+#agregar:hover,  #botonIniciar:hover, #nuevoJuego:hover, #desistir:hover{
+    transform: scale(90%); transition: all;
+    cursor: pointer;
+}
+
+#ganaste{
+    position: sticky;
+    left: 600px;
+    top: 100px;
+    width: 269px;
+    height: 44px;
+    font-size: 25px;
+    color: #be0606;
+}
+
+#perdiste{
+    position: sticky;
+    left: 650px;
+    top: 100px;
+    width: 200px;
+    height: 44px;
+    font-size: 25px;
+    color: #0906be;
+}
+#palabraGuiones{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    gap: 24px;
+    position: absolute;
+    width: 464px;
+    height: 152px;
+    left: 488px;
+    top: 350px;
+    font-size: 80px;
+}
+
+#letra{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    left: 690px;
+    top: 450px;
+    font-size: 50px;
+    text-align: center;
+}
+

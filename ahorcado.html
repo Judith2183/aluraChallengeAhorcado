@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <link rel="stylesheet" href="reset.css">
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <header>
+            <img src="./image/Logo.png" alt="logo" id="logo">
+        </header>
+        <button id="nuevoJuego">Nuevo juego</button>
+        <button id="desistir">Desistir</button>
+        <input type="text" id="letra" maxlength="1">
+        <P id="ganaste">Felicidades Ganaste!</P>
+        <p id="perdiste">Fin del juego</p>
+        <p id="palabra"></p>
+        <p id="palabraGuiones"></p>
+        <body onload="probar()">
+            <div id="content"></div>
+        </body>
+
+        <script>
+
+            var palabras = ['GATO', 'PERRO', 'ELEFANTE', 'NUTRIA'];
+            var palabra = palabras[Math.floor(Math.random()*palabras.length)];
+            var oculto = palabra.replace(/./g, "_ "); 
+            var img = document.getElementById("img");
+            var ahorcado = ["./images/01.jpg", "./images/02.jpg", "./images/03.jpg", "./images/04.jpg", 
+                            "./images/05.jpg", "./images/06.jpg", "./images/07.jpg", "./images/08.jpg",
+                            "./images/09.jpg", "./images/10.jpg"]
+            var index =0;
+            var fallo = true;
+            var contFallos = 0;
+
+            document.getElementById("ganaste").style.visibility ="hidden";
+            document.getElementById("perdiste").style.visibility ="hidden";
+            document.querySelector("#palabraGuiones").innerHTML = oculto; 
+            letra.focus();    
+            String.prototype.replaceAt = function(index, character) {
+            return this.substr(0, index) + character + this.substr(index + character.length);
+            } 
+    
+            function limpiar(){
+                var letra = document.getElementById("letra");
+                letra.value='';
+                letra.focus();
+            }
+
+            function fallar(){
+                fallo = true;
+                contFallos++;
+                for(var i = 0; i < ahorcado.length;i++){
+                    if(fallo = true){
+                        img = ahorcado[i+1];
+                    }
+                    if(contFallos <= 10){
+                        document.getElementById("perdiste").style.visibility ="visible";
+                    }
+                }
+            }
+
+            function jugar(){
+
+                var letra = document.getElementById("letra").value;  
+                for (var i=0; i<palabra.length; i++) {
+                    if(letra == palabra[i]){
+                        oculto = oculto.replaceAt(i*2, letra);
+                        document.querySelector("#palabraGuiones").innerHTML = oculto; 
+                        fallo = false;
+                    }  
+                    if(letra != palabra[i]){
+                        fallar();
+                    }                 
+                }
+            }
+
+            function probar(){
+                var img = document.createElement('img')
+                img.src = ahorcado[index];
+                document.getElementById('content').appendChild(img);
+            }
+
+            function mostrar(){
+                var img = document.getElementById('content').getElementsByTagName('img')[0]
+                index++;
+                index = index % ahorcado.length; 
+                img.src = ahorcado[index];
+            }
+                
+                limpiar();
+            
+
+            document.getElementById("letra").onkeyup = function() {
+              mostrar();
+           
+            }
+
+            //mostrarImage();
+
+            
+
+            var iniciarNuevo = document.getElementById("nuevoJuego");
+            iniciarNuevo.onclick = jugar;
+
+        </script>        
+    </body>
+</html>
